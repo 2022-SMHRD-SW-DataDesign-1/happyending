@@ -1,15 +1,11 @@
-package í–‰ë³µí•´ì£½ì£ ;
+package ï¿½ë»¾è¹‚ë“¯ë¹äºŒìŒì§›;
 
 public class Main {
 
 	public static void main(String[] args) {
-<<<<<<< HEAD
+
 		System.out.println("git í…ŒìŠ¤íŠ¸ ì¤‘ì…ë‹ˆë‹¤.");
-		System.out.println("ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½Ùºï¿½");
-=======
-		System.out.println("git Å×½ºÆ® ÁßÀÔ´Ï´Ù.");
-		System.out.println("ÁÂ ¼­Ã¢±¹ Áß¾Ó ¼ºÀç ¿ì ¼Û½ÂÈ£ ¹«Àû");
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-SW-DataDesign-1/happyending.git
+		System.out.println("ì¢Œ ì„œì°½êµ­ ì¤‘ì•™ ì„±ì¬ ìš° ì†¡ìŠ¹í˜¸ ë¬´ì ");
 
 	}
 
