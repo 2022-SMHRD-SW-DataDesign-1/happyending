@@ -4,6 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("git 테스트 중입니다.");
+		System.out.println("이성재 바보");
 
 	}
 
