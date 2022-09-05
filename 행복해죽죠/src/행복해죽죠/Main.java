@@ -1,4 +1,4 @@
-package �뻾蹂듯빐二쎌짛;
+package 행복해죽죠;
 
 public class Main {
 
