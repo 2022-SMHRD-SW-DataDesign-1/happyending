@@ -28,54 +28,54 @@ public class Main {
 		boolean isRun =true;
 		while(isRun) {
 			
-			System.out.println("[1]È¸¿ø°¡ÀÔ [2]·Î±×ÀÎ");
+			System.out.println("[1]íšŒì›ê°€ì… [2]ë¡œê·¸ì¸");
 			int sel = sc.nextInt();
 			switch (sel) {
 			
 				case 1:
-					System.out.println("ID¸¦ ÀÔ·ÂÇÏ¼¼¿ä <µÚ·Î°¡±âÀÔ·Â½Ã ÃÊ±âÈ­¸éÀ¸·Î µ¹¾Æ°©´Ï´Ù>");
+					System.out.println("IDë¥¼ ì…ë ¥í•˜ì„¸ìš” <ë’¤ë¡œê°€ê¸°ì…ë ¥ì‹œ ì´ˆê¸°í™”ë©´ìœ¼ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤>");
 					user_id = sc.next();
-					if(user_id.equals("µÚ·Î°¡±â")) {
+					if(user_id.equals("ë’¤ë¡œê°€ê¸°")) {
 						break;
 					}
 					DAO dao = new DAO();
 					DTO dto_overlap = new DTO(user_id);
 					System.out.println(dao.selectCreateUser(dto_overlap));
-					if(dao.selectCreateUser(dto_overlap).equals("ÀÌ¹Ì Á¸ÀçÇÏ´Â ID ÀÔ´Ï´Ù.")) {
+					if(dao.selectCreateUser(dto_overlap).equals("ì´ë¯¸ ì¡´ì¬í•˜ëŠ” ID ì…ë‹ˆë‹¤.")) {
 						break;
 					}
 					
 					
 					boolean isRun_pw = true;
 					while(isRun_pw) {
-						System.out.println("PASSWORD¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+						System.out.println("PASSWORDë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 						user_pw = sc.next();
 
-						System.out.println("PASSWORD¸¦ ÇÑ¹ø ´õ ÀÔ·ÂÇÏ¼¼¿ä");
+						System.out.println("PASSWORDë¥¼ í•œë²ˆ ë” ì…ë ¥í•˜ì„¸ìš”");
 						user_pw2 =sc.next();
 
-						if(user_pw.equals(user_pw2)) {		//PASSWORD ¿ÀÅ»ÀÚ ¹æÁö 
-							System.out.println("PASSWORD°¡ ÀÏÄ¡ÇÕ´Ï´Ù.");
+						if(user_pw.equals(user_pw2)) {		//PASSWORD ì˜¤íƒˆì ë°©ì§€ 
+							System.out.println("PASSWORDê°€ ì¼ì¹˜í•©ë‹ˆë‹¤.");
 							isRun_pw = false;
 						}
 						else {
-							System.out.println("È¸¿ø°¡ÀÔ ½ÇÆĞ! PASSWORD°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+							System.out.println("íšŒì›ê°€ì… ì‹¤íŒ¨! PASSWORDê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 							isRun_pw = true;
 						}
 					}
 					
-					System.out.println("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.<µÚ·Î°¡±âÀÔ·Â½Ã ÃÊ±âÈ­¸éÀ¸·Î µ¹¾Æ°©´Ï´Ù>");
+					System.out.println("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.<ë’¤ë¡œê°€ê¸°ì…ë ¥ì‹œ ì´ˆê¸°í™”ë©´ìœ¼ë¡œ ëŒì•„ê°‘ë‹ˆë‹¤>");
 					String user_name =sc.next();
-					if(user_name.equals("µÚ·Î°¡±â")) {
+					if(user_name.equals("ë’¤ë¡œê°€ê¸°")) {
 						break;
 					}
-					System.out.println("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+					System.out.println("ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 					int user_age = sc.nextInt();
 					if(user_age<20) {
-						System.out.println("¹Ì¼º³âÀÚ´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.");
+						System.out.println("ë¯¸ì„±ë…„ìëŠ” ì´ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 						break;
 					}else {
-						System.out.println("È¸¿ø°¡ÀÔ ¼º°ø!");
+						System.out.println("íšŒì›ê°€ì… ì„±ê³µ!");
 					}
 					start_day = formatedNow;
 					last_day ="1994/02/23";
@@ -86,23 +86,23 @@ public class Main {
 //					int cnt=0;
 //					cnt = dao.insertCreateUser(dto);
 //					if(cnt>0) {
-//						System.out.println("¼º°ø");
+//						System.out.println("ì„±ê³µ");
 //					}else {
-//						System.out.println("½ÇÆĞ");
+//						System.out.println("ì‹¤íŒ¨");
 //					}
 					
 					break;
 
-				case 2://·Î±×ÀÎ
-					System.out.println("ID¸¦ ÀÔ·ÂÇÏ¼¼¿ä ");
+				case 2://ë¡œê·¸ì¸
+					System.out.println("IDë¥¼ ì…ë ¥í•˜ì„¸ìš” ");
 					user_id = sc.next();
-					System.out.println("PW¸¦ ÀÔ·ÂÇÏ¼¼¿ä ");
+					System.out.println("PWë¥¼ ì…ë ¥í•˜ì„¸ìš” ");
 					user_pw = sc.next();
 					
 					dao = new DAO();
 					dto = new DTO(user_id,user_pw);
 					System.out.println(dao.login(dto));
-					if(dao.login(dto).equals("·Î±×ÀÎ ¼º°ø!")) {
+					if(dao.login(dto).equals("ë¡œê·¸ì¸ ì„±ê³µ!")) {
 						isRun =  false;
 						break;
 					}else {
@@ -123,12 +123,12 @@ public class Main {
 		
 		boolean isRun_main=true;
 		while(isRun_main) {
-			System.out.println("[1]°ÔÀÓ¼±ÅÃ [2]³»Á¤º¸ [3]·©Å· [4]»óÁ¡ [5]Á¾·á");
+			System.out.println("[1]ê²Œì„ì„ íƒ [2]ë‚´ì •ë³´ [3]ë­í‚¹ [4]ìƒì  [5]ì¢…ë£Œ");
 			int sel=sc.nextInt();
 			
 			switch (sel) {
-			case 1 ://°ÔÀÓ¼±ÅÃ
-				System.out.println("[1]½½·Ô¸Ó½Å [2]¾ß¹ÙÀ§_ÃÖÁ¾ [3]°æ¸¶");
+			case 1 ://ê²Œì„ì„ íƒ
+				System.out.println("[1]ìŠ¬ë¡¯ë¨¸ì‹  [2]ì•¼ë°”ìœ„_ìµœì¢… [3]ê²½ë§ˆ");
 				int sel_game = sc.nextInt();
 				
 
@@ -149,16 +149,16 @@ public class Main {
 				
 				
 				break;
-			case 2 : //³»Á¤º¸Á¶È¸
+			case 2 : //ë‚´ì •ë³´ì¡°íšŒ
 				
 				break;
-			case 3 ://·©Å·Á¶È¸
+			case 3 ://ë­í‚¹ì¡°íšŒ
 				
 				break;
-			case 4 ://»óÁ¡
+			case 4 ://ìƒì 
 				
 				break;
-			case 5 : //Á¾·á
+			case 5 : //ì¢…ë£Œ
 				isRun_main =false;
 				break;
 

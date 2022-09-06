@@ -29,7 +29,7 @@ public class DTO {
 		this.start_day = start_day;
 		this.last_day = last_day;
 	}
-	//È¸¿ø°¡ÀÔ¿ë
+	//íšŒì›ê°€ì…ìš©
 	public DTO(String user_id,String user_pw,String user_name,int age,String start_day,String last_day) {
 		this.user_id = user_id;
 		this.user_pw = user_pw;
@@ -38,16 +38,16 @@ public class DTO {
 		this.start_day = start_day;
 		this.last_day = last_day;
 	}
-	//È¸¿ø°¡ÀÔ½Ã Áßº¹Ã¼Å©¿ë
+	//íšŒì›ê°€ì…ì‹œ ì¤‘ë³µì²´í¬ìš©
 	public DTO(String user_id) {
 		this.user_id = user_id;
 	}
-	//·Î±×ÀÎ¿ë
+	//ë¡œê·¸ì¸ìš©
 	public DTO(String user_id,String user_pw) {
 		this.user_id = user_id;
 		this.user_pw = user_pw;
 	}
-	//°ÔÀÓ¿ë
+	//ê²Œì„ìš©
 	public DTO(int coin,int score) {
 		this.coin =coin;
 		this.score = score;
