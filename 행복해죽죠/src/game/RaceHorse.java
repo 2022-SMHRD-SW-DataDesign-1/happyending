@@ -1,26 +1,22 @@
-package 행복해죽죠;
+package game;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
 public class RaceHorse {
 
 	static int strRank = 1;
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("말을 선택하세요 :) >> ");
-		int num = sc.nextInt();
 		List<Horse> list = new ArrayList<>();
 
-		list.add(new Horse("1踰덈쭏"));
-		list.add(new Horse("2踰덈쭏"));
-		list.add(new Horse("3踰덈쭏"));
-		list.add(new Horse("4踰덈쭏"));
-		list.add(new Horse("5踰덈쭏"));
+		list.add(new Horse("1번마"));
+		list.add(new Horse("2번마"));
+		list.add(new Horse("3번마"));
+		list.add(new Horse("4번마"));
+		list.add(new Horse("5번마"));
 
 		for (Horse horse : list) {
 			horse.start();
@@ -35,22 +31,13 @@ public class RaceHorse {
 		}
 
 		Collections.sort(list);
-		System.out.println("寃쎄린�걹 ....");
+		System.out.println("경기끝 ....");
 		System.out.println("======================================================");
 		System.out.println();
-<<<<<<< HEAD
-		System.out.println(" 寃쎄린 寃곌낵 ");
-=======
-<<<<<<< HEAD
-		System.out.println(" 寃쎄린 寃곌낵 ");
-=======
 		System.out.println(" 경기 결과 ");
-		System.out.println("축하합니다 ^^ ");
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-SW-DataDesign-1/happyending.git
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-SW-DataDesign-1/happyending.git
 
 		for (Horse horse : list) {
-			System.out.println(horse.getName1() + " " + horse.getRank() + "�벑");
+			System.out.println(horse.getName1() + " " + horse.getRank() + "등");
 		}
 	}
 }
@@ -58,11 +45,11 @@ public class RaceHorse {
 class Horse extends Thread implements Comparable<Horse>{
    private String name1;
    int rank;
-   
+
    public Horse(String name) {
       this.name1 = name;
    }
-   
+
    public String getName1() {
       return name1;
    }
@@ -87,14 +74,14 @@ class Horse extends Thread implements Comparable<Horse>{
 			for (int j = 0; j < i; j++) {
 				System.out.print(" ");
 			}
-			System.out.print("\"�윇�\"");
+			System.out.print("\"🐌\"");
 
 			for (int j = 49; j > i; j--) {
 				System.out.print(" ");
 			}
 
-		
-			
+
+
 			System.out.println();
 
 			try {
@@ -104,7 +91,7 @@ class Horse extends Thread implements Comparable<Horse>{
 			}
 
 		}
-		System.out.println(name1 + " �걹");
+		System.out.println(name1 + " 끝");
 
 		setRank(RaceHorse.strRank);
 		RaceHorse.strRank++;
