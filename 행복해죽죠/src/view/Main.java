@@ -83,13 +83,13 @@ public class Main {
 					
 					DTO dto = new DTO(user_id, user_pw, user_name, user_age,start_day,last_day);
 					
-//					int cnt=0;
-//					cnt = dao.insertCreateUser(dto);
-//					if(cnt>0) {
-//						System.out.println("성공");
-//					}else {
-//						System.out.println("실패");
-//					}
+					int cnt=0;
+					cnt = dao.insertCreateUser(dto);
+					if(cnt>0) {
+						System.out.println("성공");
+					}else {
+						System.out.println("실패");
+					}
 					
 					break;
 
@@ -114,15 +114,12 @@ public class Main {
 		DAO dao= new DAO();
 		DTO user_inf= new DTO(user_id,user_pw);
 		dao.login(user_inf);
-		int coin = user_inf.getCoin();
-		int score = user_inf.getScore();
-		
-		System.out.println(coin);
-		System.out.println(score);
 		
 		
 		boolean isRun_main=true;
 		while(isRun_main) {
+			int coin = user_inf.getCoin();
+			int score = user_inf.getScore();
 			System.out.println("[1]게임선택 [2]내정보 [3]랭킹 [4]상점 [5]종료");
 			int sel=sc.nextInt();
 			
@@ -135,8 +132,9 @@ public class Main {
 				if(sel_game ==1) {
 					slotmachine game = new slotmachine(coin, score);
 					game.play();
-					System.out.println(game.getcoin()); 
-					System.out.println(game.getScore()); 
+					user_inf.setCoin(game.getcoin());
+					user_inf.setScore(game.getScore());
+					dao.update(user_inf);
 				}else if(sel_game ==2) {
 					
 					
