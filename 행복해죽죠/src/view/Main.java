@@ -1,18 +1,12 @@
 package view;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-
 import game.slotmachine;
-
 import java.time.LocalDate;
 import model.DAO;
 import model.DTO;
-
-
 public class Main {
-
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
@@ -50,10 +44,8 @@ public class Main {
 					while(isRun_pw) {
 						System.out.println("PASSWORD를 입력하세요");
 						user_pw = sc.next();
-
 						System.out.println("PASSWORD를 한번 더 입력하세요");
 						user_pw2 =sc.next();
-
 						if(user_pw.equals(user_pw2)) {		//PASSWORD 오탈자 방지 
 							System.out.println("PASSWORD가 일치합니다.");
 							isRun_pw = false;
@@ -80,9 +72,9 @@ public class Main {
 					start_day = formatedNow;
 					last_day ="1994/02/23";
 					
-					
+
 					DTO dto = new DTO(user_id, user_pw, user_name, user_age,start_day,last_day);
-					
+
 //					int cnt=0;
 //					cnt = dao.insertCreateUser(dto);
 //					if(cnt>0) {
@@ -90,7 +82,14 @@ public class Main {
 //					}else {
 //						System.out.println("실패");
 //					}
-					
+					int cnt=0;
+					cnt = dao.insertCreateUser(dto);
+					if(cnt>0) {
+						System.out.println("성공");
+					}else {
+						System.out.println("실패");
+					}
+
 					break;
 
 				case 2://로그인
@@ -114,32 +113,36 @@ public class Main {
 		DAO dao= new DAO();
 		DTO user_inf= new DTO(user_id,user_pw);
 		dao.login(user_inf);
-		int coin = user_inf.getCoin();
-		int score = user_inf.getScore();
-		
-		System.out.println(coin);
-		System.out.println(score);
-		
-		
+//		int coin = user_inf.getCoin();
+//		int score = user_inf.getScore();
+
+//		System.out.println(coin);
+//		System.out.println(score);
+
+
 		boolean isRun_main=true;
 		while(isRun_main) {
+			int coin = user_inf.getCoin();
+			int score = user_inf.getScore();
 			System.out.println("[1]게임선택 [2]내정보 [3]랭킹 [4]상점 [5]종료");
 			int sel=sc.nextInt();
-			
+
 			switch (sel) {
 			case 1 ://게임선택
 				System.out.println("[1]슬롯머신 [2]야바위_최종 [3]경마");
 				int sel_game = sc.nextInt();
 				
-
 				if(sel_game ==1) {
 					slotmachine game = new slotmachine(coin, score);
 					game.play();
 					System.out.println(game.getcoin()); 
 					System.out.println(game.getScore()); 
+					user_inf.setCoin(game.getcoin());
+					user_inf.setScore(game.getScore());
+					dao.update(user_inf);
 				}else if(sel_game ==2) {
-					
-					
+
+
 				}else if(sel_game ==3) {
 					
 					
@@ -161,11 +164,7 @@ public class Main {
 			case 5 : //종료
 				isRun_main =false;
 				break;
-
 			}
-
 		}
 	}
-
-
 }
