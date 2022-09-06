@@ -36,7 +36,10 @@ public class Main {
 					}
 					DAO dao = new DAO();
 					DTO dto_overlap = new DTO(user_id);
-					
+					System.out.println(dao.selectCreateUser(dto_overlap));
+					if(dao.selectCreateUser(dto_overlap).equals("이미 존재하는 ID 입니다.")) {
+						break;
+					}
 					//if qury에서 모든 name값을 가져와야함. 가져와서 id와 비교. 중복이 있으면 다시.뒤로가기 입력시 메인화면 
 					//else
 					

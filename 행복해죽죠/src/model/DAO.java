@@ -79,28 +79,31 @@ public class DAO {
 		
 		return cnt;	
 	}
-
-	public ResultSet selectCreateUser(DTO dto) {
+	//회원가입 도중 중복체크
+	String overlap ="";
+	public String selectCreateUser(DTO dto) {
 		connect();
 		
-		String sql = "select name from users";
+		String sql = "select user_id from users";
 		
 		try {
 			psmt =conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
-				//.equals(rs.getString(1));
+				if((dto.getUser_id()).equals(rs.getString(1))) {
+					overlap = "이미 존재하는 ID 입니다.";
+				}
+				else {
+					overlap = "사용가능한 ID입니다.";
+				}
+				
 			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		return rs;
+		return overlap;
 	}
 
 
