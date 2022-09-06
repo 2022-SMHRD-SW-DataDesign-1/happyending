@@ -15,7 +15,7 @@ public class RaceHorse {
 		System.out.println("말을 선택하세요 :) >>");
 		int num = sc.nextInt();
 		List<Horse> list = new ArrayList<>();
-
+		int score = 1000;
 		list.add(new Horse("1번마"));
 		list.add(new Horse("2번마"));
 		list.add(new Horse("3번마"));
@@ -48,7 +48,9 @@ public class RaceHorse {
 
 		
 		if(list.get(0).getName1().equals(num+"번마")) {
+			score=score*2;
 			System.out.println("1등 축하합니다!!@!~!~!");
+			System.out.println(score);
 		}
 
 		
