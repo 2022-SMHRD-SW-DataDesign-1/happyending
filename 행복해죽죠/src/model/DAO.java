@@ -13,7 +13,7 @@ public class DAO {
 	
 	
 	//insert회원가입 
-	public int insert(DTO dto) {
+	public int insertCreateUser(DTO dto) {
 		int cnt =0;
 		
 		connect();
@@ -26,7 +26,7 @@ public class DAO {
 			 String start_day = dto.getStart_day();
 			 String last_day = dto.getLast_day();
 				
-			 String sql = "insert into users values(?,?,?,?,?,?,?)";//id,pw,name,age,level,coin,ex
+			 String sql = "insert into users values(?,?,?,?,?,?,?,?)";//id,pw,name,age,level,coin,ex
 			 psmt = conn.prepareStatement(sql);
 			 
 			 psmt.setString(1, or_id);
@@ -36,7 +36,7 @@ public class DAO {
 			 psmt.setInt(5, 1);
 			 psmt.setInt(6,0);
 			 psmt.setInt(7, 0);
-			 
+			 psmt.setInt(8, 0);
 			 
 			 
 			 cnt = psmt.executeUpdate();
@@ -100,13 +100,65 @@ public class DAO {
 			}
 			
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			if(conn!=null) {
+				conn.close();
+			}
+			if(psmt!=null) {
+				psmt.close();
+			}
+			if(rs!=null) {
+				rs.close();
+			}
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return overlap;
 	}
 
-
+	//로그인
+	public String login(DTO dto) {
+		connect();
+		String ment ="";
+		String sql ="select user_id,pw from users";
+		
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				if((dto.getUser_id()).equals(rs.getString(1)) && (dto.getUser_pw()).equals(rs.getString(2))) {
+					ment = "로그인 성공!";//+ rs.getString(1)+"님 환영합니다";
+					break;
+				}else {
+					ment = "로그인 실패! ID와 PW를 확인해 주세요.";
+				}	
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			if(conn!=null) {
+				conn.close();
+			}
+			if(psmt!=null) {
+				psmt.close();
+			}
+			if(rs!=null) {
+				rs.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return ment;
+	}
 	
 	
 	

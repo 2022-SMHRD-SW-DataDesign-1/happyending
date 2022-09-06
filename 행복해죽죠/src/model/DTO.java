@@ -40,6 +40,11 @@ public class DTO {
 	public DTO(String user_id) {
 		this.user_id = user_id;
 	}
+	//로그인용
+	public DTO(String user_id,String user_pw) {
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+	}
 	
 	
 	public String getUser_id() {

@@ -23,7 +23,7 @@ public class Main {
 		String formatedNow = now.format(formatter);
 		boolean isRun =true;
 		while(isRun) {
-		
+			
 			System.out.println("[1]회원가입 [2]로그인");
 			int sel = sc.nextInt();
 			switch (sel) {
@@ -40,8 +40,6 @@ public class Main {
 					if(dao.selectCreateUser(dto_overlap).equals("이미 존재하는 ID 입니다.")) {
 						break;
 					}
-					//if qury에서 모든 name값을 가져와야함. 가져와서 id와 비교. 중복이 있으면 다시.뒤로가기 입력시 메인화면 
-					//else
 					
 					
 					boolean isRun_pw = true;
@@ -81,32 +79,58 @@ public class Main {
 					
 					DTO dto = new DTO(user_id, user_pw, user_name, user_age,start_day,last_day);
 					
-					int cnt=0;
-					cnt = dao.insert(dto);
-					if(cnt>0) {
-						System.out.println("성공");
-					}else {
-						System.out.println("실패");
-					}
+//					int cnt=0;
+//					cnt = dao.insertCreateUser(dto);
+//					if(cnt>0) {
+//						System.out.println("성공");
+//					}else {
+//						System.out.println("실패");
+//					}
 					
 					break;
 
-				case 2:
+				case 2://로그인
+					System.out.println("ID를 입력하세요 ");
+					user_id = sc.next();
+					System.out.println("PW를 입력하세요 ");
+					user_pw = sc.next();
 					
-				
-					break;
-					
-				default :
-					
-					break;
+					dao = new DAO();
+					dto = new DTO(user_id,user_pw);
+					System.out.println(dao.login(dto));
+					if(dao.login(dto).equals("로그인 성공!")) {
+						isRun =  false;
+						break;
+					}else {
+						break;
+					}
 			}
+		}
 		
-		
-		
-		
-		
-		
-		
+		boolean isRun_main=true;
+		while(isRun_main) {
+			System.out.println("메인이당");
+			int sel=0;
+			switch (sel) {
+			case 1 ://게임선택
+					
+				break;
+			case 2 : //내정보조회
+				
+				break;
+			case 3 ://랭킹조회
+				
+				break;
+			case 4 ://상점
+				
+				break;
+			case 5 : //종료
+				
+				break;
+			default:
+				break;
+			}
+			break;
 		}
 	}
 
