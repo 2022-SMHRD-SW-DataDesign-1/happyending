@@ -113,12 +113,17 @@ public class Main {
 		DAO dao= new DAO();
 		DTO user_inf= new DTO(user_id,user_pw);
 		dao.login(user_inf);
+
 //		int coin = user_inf.getCoin();
 //		int score = user_inf.getScore();
 
 //		System.out.println(coin);
 //		System.out.println(score);
 
+
+
+		
+		
 
 		boolean isRun_main=true;
 		while(isRun_main) {
@@ -135,8 +140,6 @@ public class Main {
 				if(sel_game ==1) {
 					slotmachine game = new slotmachine(coin, score);
 					game.play();
-					System.out.println(game.getcoin()); 
-					System.out.println(game.getScore()); 
 					user_inf.setCoin(game.getcoin());
 					user_inf.setScore(game.getScore());
 					dao.update(user_inf);

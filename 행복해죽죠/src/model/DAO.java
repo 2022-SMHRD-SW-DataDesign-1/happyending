@@ -166,7 +166,7 @@ public class DAO {
 		return ment;
 	}
 	//game종료후 update
-//	public update(DTO dto) {
+
 	public int update(DTO dto) {
 		connect();
 		int cnt =0;
@@ -176,13 +176,13 @@ public class DAO {
 			psmt.setInt(1, dto.getCoin());
 			psmt.setInt(2, dto.getScore());
 			psmt.setString(3, dto.getUser_id());
-
+			
 			cnt = psmt.executeUpdate();
-
+			
 //			sql = "commit";
 //			psmt = conn.prepareStatement(sql);
 //			cnt = psmt.executeUpdate();
-
+			
 			sql = "select coin,score from users where user_id=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getUser_id());
@@ -190,15 +190,14 @@ public class DAO {
 			rs.next();
 			dto.setCoin(rs.getInt(1)); 
 			dto.setScore(rs.getInt(2)); 
-
-
-
-
+			
+			
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-//	}
+		
 		try {
 			if(conn!=null) {
 				conn.close();
@@ -213,10 +212,20 @@ public class DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
+		
+		
 		return cnt;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 	
 	private void connect() {
 		//동적로딩
