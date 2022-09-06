@@ -44,16 +44,15 @@ public class RaceHorse {
 			System.out.println(horse.getName1() + " " + horse.getRank() + "등");
 		
 		}
-		for(int i =0; i<list.size(); i++) {
-			
 		
-		if((list.size().getRank()==num) {
-				System.out.println("1등을 축하합니다!!!~");
-				break;
-		
-			
 
-			}
+		
+		if(list.get(0).getName1().equals(num+"번마")) {
+			System.out.println("1등 축하합니다!!@!~!~!");
+		}
+
+		
+
 		}
 	}
 
