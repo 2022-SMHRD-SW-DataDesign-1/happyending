@@ -39,6 +39,7 @@ public class RaceHorse {
 		System.out.println("======================================================");
 		System.out.println();
 		System.out.println(" 경기 결과 ");
+		if
 		System.out.println("축하합니다 ^^ ");
 
 		for (Horse horse : list) {
