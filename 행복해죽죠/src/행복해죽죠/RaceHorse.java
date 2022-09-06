@@ -4,12 +4,16 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class RaceHorse {
 
 	static int strRank = 1;
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("말을 선택하세요 :) >> ");
+		int num = sc.nextInt();
 		List<Horse> list = new ArrayList<>();
 
 		list.add(new Horse("1번마"));
@@ -35,6 +39,7 @@ public class RaceHorse {
 		System.out.println("======================================================");
 		System.out.println();
 		System.out.println(" 경기 결과 ");
+		System.out.println("축하합니다 ^^ ");
 
 		for (Horse horse : list) {
 			System.out.println(horse.getName1() + " " + horse.getRank() + "등");
