@@ -11,11 +11,12 @@ public class ½½·Ô¸Ó½Å {
 		Random rd = new Random();
 
 		// º¯¼ö ¼±¾ð!
-		int coin = 10; // ÄÚÀÎ
-		int score = 0; // ÃÑ ½ºÄÚ¾î
-		int bonus = 10; // easy º¸³Ê½º Á¡¼ö
-		int bonus1 = 20; // normal º¸³Ê½º Á¡¼ö
-		int bonus2 = 30; // hard º¸³Ê½º Á¡¼ö
+		int coin = 10; // ÄÚÀÎ 
+		int score = 0; // ÃÑ ½ºÄÚ¾î  
+		int bonus = 20; // easy º¸³Ê½º Á¡¼ö
+		int bonus1 = 30; // normal º¸³Ê½º Á¡¼ö 
+		int bonus2 = 50; // hard º¸³Ê½º Á¡¼ö 
+		
 
 		while (coin != 0) {
 
@@ -28,30 +29,32 @@ public class ½½·Ô¸Ó½Å {
 			slotmc[4] = rd.nextInt(9) + 1;
 
 			System.out.println("=============½½·Ô¸Ó½Å============");
-			System.out.println("[1]easy [2] normal [3]hard");
+			System.out.println("[1]easy [2] normal [3]hard [4]Á¾·á");
 			System.out.println();
 			System.out.print("¼ýÀÚÀÔ·Â :");
 
 			int select = sc.nextInt();
 
 			// °ÔÀÓ½ÃÀÛ
-			if (select == 1) { // easy
+			if (select == 1) { //easy
 				System.out.println(slotmc[0] + " " + slotmc[1] + " " + slotmc[2]);
 				if (slotmc[0] == slotmc[1] && slotmc[0] == slotmc[2]) {
-					System.out.println("100 Á¡ È¹µæ !! ");
+					System.out.println("100 Á¡ È¹µæ / ÄÚÀÎ2°³ È¹µæ!! ");
 					coin = coin + 2;
 					score = score + 100;
 					System.out.println("ÇöÀç Á¡¼ö :" + score);
-				} else if (slotmc[0] == slotmc[1]) {
-					System.out.println("10Á¡ È¹µæ");
+				} 
+				// ·£´ý ¼ýÀÚ 3°³Áß 2°³ ¸ÂÃß¸é 20Á¡ È¹µæ!
+				else if (slotmc[0] == slotmc[1]) {
+					System.out.println("20Á¡ È¹µæ");
 					score = score + bonus;
 					System.out.println("ÇöÀç Á¡¼ö :" + score);
 				} else if (slotmc[0] == slotmc[2]) {
-					System.out.println("10Á¡ È¹µæ");
+					System.out.println("20Á¡ È¹µæ");
 					score = score + bonus;
 					System.out.println("ÇöÀç Á¡¼ö :" + score);
 				} else if (slotmc[1] == slotmc[2]) {
-					System.out.println("10Á¡ È¹µæ");
+					System.out.println("20Á¡ È¹µæ");
 					score = score + bonus;
 					System.out.println("ÇöÀç Á¡¼ö :" + score);
 				} else {
@@ -62,27 +65,60 @@ public class ½½·Ô¸Ó½Å {
 				}
 
 			}
-			if (select == 2) { // normal
+			if (select == 2) { //normal
 				System.out.println(slotmc[0] + " " + slotmc[1] + " " + slotmc[2] + " " + slotmc[3]);
 				if (slotmc[0] == slotmc[1] && slotmc[0] == slotmc[2] && slotmc[0] == slotmc[3]) {
-					System.out.println("100 Á¡ È¹µæ !! ");
+					System.out.println("200 Á¡ È¹µæ / ÄÚÀÎ3°³ È¹µæ !! ");
 					coin = coin + 3;
 					score = score + 200;
 					System.out.println("ÇöÀç Á¡¼ö :" + score);
-				} else if (slotmc[0] == slotmc[1] && slotmc[0] == slotmc[2]) {
+				} 
+				
+				// ·£´ý ¼ýÀÚ 4°³ Áß 2°³ ¸ÂÃâ½Ã Á¡¼ö 20Á¡ È¹µæ 
+				else if(slotmc[0] == slotmc[1]) {
 					System.out.println("20Á¡ È¹µæ");
+					score = score + bonus;
+					System.out.println("ÇöÀç Á¡¼ö :" + score);
+				} else if(slotmc[0] == slotmc[2]) {
+					System.out.println("20Á¡ È¹µæ");
+					score = score + bonus;
+					System.out.println("ÇöÀç Á¡¼ö :" + score);
+				} else if(slotmc[0] == slotmc[3]) {
+					System.out.println("20Á¡ È¹µæ");
+					score = score + bonus;
+					System.out.println("ÇöÀç Á¡¼ö :" + score);
+				}				 
+				 else if(slotmc[1] == slotmc[2]) {
+					System.out.println("20Á¡ È¹µæ");
+					score = score + bonus;
+					System.out.println("ÇöÀç Á¡¼ö :" + score);
+				
+				} else if(slotmc[1] == slotmc[3]) {
+					System.out.println("20Á¡ È¹µæ");
+					score = score + bonus;
+					System.out.println("ÇöÀç Á¡¼ö :" + score);
+				
+				}else if(slotmc[2] == slotmc[3]) {
+					System.out.println("20Á¡ È¹µæ");
+					score = score + bonus;
+					System.out.println("ÇöÀç Á¡¼ö :" + score);		
+				}				 	 	 	 	 
+				
+				// ·£´ý ¼ýÀÚ 4°³Áß 3°³ ¸ÂÃèÀ»¶§ 30Á¡ È¹µæ .. 
+				else if (slotmc[0] == slotmc[1] && slotmc[0] == slotmc[2]) {
+					System.out.println("30Á¡ È¹µæ");
 					score = score + bonus1;
 					System.out.println("ÇöÀç Á¡¼ö :" + score);
 				} else if (slotmc[0] == slotmc[1] && slotmc[0] == slotmc[3]) {
-					System.out.println("20Á¡ È¹µæ");
+					System.out.println("30Á¡ È¹µæ");
 					score = score + bonus1;
 					System.out.println("ÇöÀç Á¡¼ö :" + score);
 				} else if (slotmc[1] == slotmc[2] && slotmc[0] == slotmc[3]) {
-					System.out.println("20Á¡ È¹µæ");
+					System.out.println("30Á¡ È¹µæ");
 					score = score + bonus1;
 					System.out.println("ÇöÀç Á¡¼ö :" + score);
 				} else if (slotmc[1] == slotmc[2] && slotmc[3] == slotmc[0]) {
-					System.out.println("20Á¡ È¹µæ");
+					System.out.println("30Á¡ È¹µæ");
 					score = score + bonus1;
 					System.out.println("ÇöÀç Á¡¼ö :" + score);
 				} else {
@@ -92,35 +128,80 @@ public class ½½·Ô¸Ó½Å {
 					System.out.println("ÇöÀç Á¡¼ö :" + score);
 				}
 			}
-			if (select == 3) { // hard
-				System.out.println(slotmc[0] + " " + slotmc[1] + " " + slotmc[2] + " " + slotmc[3] + " " + slotmc[4]);
-				if (slotmc[0] == slotmc[1] && slotmc[0] == slotmc[2] && slotmc[0] == slotmc[3]
-						&& slotmc[0] == slotmc[4]) {
-					System.out.println("100 Á¡ È¹µæ !! ");
-					coin = coin + 5;
-					score = score + 300;
-					System.out.println("ÇöÀç Á¡¼ö :" + score);
-				} else if (slotmc[1] == slotmc[2] && slotmc[1] == slotmc[3] && slotmc[1] == slotmc[4]) {
-					System.out.println("30Á¡ È¹µæ");
-					score = score + bonus2;
-				} else if (slotmc[2] == slotmc[1] && slotmc[2] == slotmc[3] && slotmc[2] == slotmc[0]) {
-					System.out.println("30Á¡ È¹µæ");
-					score = score + bonus2;
-				} else if (slotmc[3] == slotmc[4] && slotmc[3] == slotmc[1] && slotmc[3] == slotmc[0]) {
-					System.out.println("30Á¡ È¹µæ");
-					score = score + bonus2;
-				} else if (slotmc[4] == slotmc[0] && slotmc[4] == slotmc[1] && slotmc[4] == slotmc[2]) {
-					System.out.println("30Á¡ È¹µæ");
-					score = score + bonus2;
-				} else {
-					System.out.println("ÄÚÀÎ Â÷°¨ ¤Ð¤Ð ");
-					coin--;
-					System.out.println("³²ÀºÄÚÀÎ¼ö :" + coin);
-					System.out.println("ÇöÀç Á¡¼ö :" + score);
-				}
+				if (select == 3) { //hard 
+					System.out.println(slotmc[0] + " " + slotmc[1] + " " + slotmc[2] + " " + slotmc[3] + " " + slotmc[4]);
+					if (slotmc[0] == slotmc[1] && slotmc[0] == slotmc[2] && slotmc[0] == slotmc[3]&& slotmc[0] == slotmc[4]) {
+						System.out.println("300 Á¡ È¹µæ / ÄÚÀÎ5°³ È¹µæ!! ");
+						coin = coin + 5;
+						score = score + 300;
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					} 
+					
+					// ·£´ý ¼ýÀÚ 5°³Áß 4°³ ¸ÂÃâ½Ã 40Á¡ È¹µæ  
+					else if (slotmc[1] == slotmc[2] && slotmc[1] == slotmc[3] && slotmc[1] == slotmc[4]) {
+						System.out.println("50Á¡ È¹µæ");
+						score = score + bonus2;
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					} else if (slotmc[2] == slotmc[1] && slotmc[2] == slotmc[3] && slotmc[2] == slotmc[0]) {
+						System.out.println("50Á¡ È¹µæ");
+						score = score + bonus2;
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					} else if (slotmc[3] == slotmc[4] && slotmc[3] == slotmc[1] && slotmc[3] == slotmc[0]) {
+						System.out.println("50Á¡ È¹µæ");
+						score = score + bonus2;
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					}else if (slotmc[4] == slotmc[0] && slotmc[4] == slotmc[1] && slotmc[4] == slotmc[2]) {
+						System.out.println("50Á¡ È¹µæ");
+						score = score + bonus2;
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					}
+					
+					// ·£´ý ¼ýÀÚ 5°³ Áß 3°³ ¸ÂÃß¸é 30Á¡ È¹µæ ! 
+					else if(slotmc[0] == slotmc[1] && slotmc[0] == slotmc[2]) {
+						System.out.println("30Á¡ È¹µæ");
+						score = score + bonus1;
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					}else if(slotmc[0] == slotmc[1] && slotmc[0] == slotmc[3]) {
+						System.out.println("30Á¡ È¹µæ");
+						score = score + bonus1;
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					}else if(slotmc[0] == slotmc[2] && slotmc[2] == slotmc[3]) {
+						System.out.println("30Á¡ È¹µæ");
+						score = score + bonus1;
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					}else if(slotmc[0] == slotmc[2] && slotmc[2] == slotmc[4]) {
+						System.out.println("30Á¡ È¹µæ");
+						score = score + bonus1;
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					}else if(slotmc[0] == slotmc[1] && slotmc[0] == slotmc[4]) {
+						System.out.println("30Á¡ È¹µæ");
+						score = score + bonus1;
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					}else if(slotmc[1] == slotmc[2] && slotmc[2] == slotmc[3]) {
+						System.out.println("30Á¡ È¹µæ");
+						score = score + bonus1;
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					}else if(slotmc[1] == slotmc[2] && slotmc[2] == slotmc[4]) {
+						System.out.println("30Á¡ È¹µæ");
+						score = score + bonus1;
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					}else if(slotmc[2] == slotmc[3] && slotmc[3] == slotmc[4]) {
+						System.out.println("30Á¡ È¹µæ");
+						score = score + bonus1;
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					}
+					else {
+						System.out.println("ÄÚÀÎ Â÷°¨ ¤Ð¤Ð ");
+						coin--;
+						System.out.println("³²ÀºÄÚÀÎ¼ö :" + coin);
+						System.out.println("ÇöÀç Á¡¼ö :" + score);
+					}
+				}if(select == 4) {
+					System.out.println("Á¾·á");
+					break;
+
 			}
 
 		}
-
 	}
 }
