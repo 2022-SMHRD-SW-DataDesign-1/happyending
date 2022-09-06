@@ -1,4 +1,5 @@
-package 행복해죽죠;
+package Casino;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -31,13 +32,13 @@ public class RaceHorse {
 		}
 
 		Collections.sort(list);
-		System.out.println("경기끝 ....");
+		System.out.println("경기?�� ....");
 		System.out.println("======================================================");
 		System.out.println();
 		System.out.println(" 경기 결과 ");
 
 		for (Horse horse : list) {
-			System.out.println(horse.getName1() + " " + horse.getRank() + "등");
+			System.out.println(horse.getName1() + " " + horse.getRank() + "?��");
 		}
 	}
 }
@@ -74,7 +75,7 @@ class Horse extends Thread implements Comparable<Horse>{
 			for (int j = 0; j < i; j++) {
 				System.out.print(" ");
 			}
-			System.out.print("\"🐌\"");
+			System.out.print("\"?��?\"");
 
 			for (int j = 49; j > i; j--) {
 				System.out.print(" ");
@@ -91,7 +92,7 @@ class Horse extends Thread implements Comparable<Horse>{
 			}
 
 		}
-		System.out.println(name1 + " 끝");
+		System.out.println(name1 + " ?��");
 
 		setRank(RaceHorse.strRank);
 		RaceHorse.strRank++;

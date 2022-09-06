@@ -1,4 +1,4 @@
-package วเบนวุมืมา;
+package Casino;
 
 import java.util.Random;
 import java.util.Scanner;
