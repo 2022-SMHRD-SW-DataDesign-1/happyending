@@ -3,6 +3,9 @@ package view;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+
+import game.slotmachine;
+
 import java.time.LocalDate;
 import model.DAO;
 import model.DTO;
@@ -17,6 +20,7 @@ public class Main {
 		String user_pw2=null;
 		String start_day =null;
 		String last_day=null;
+		String user_id =null;
 		
 		LocalDate now = LocalDate.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
@@ -30,7 +34,7 @@ public class Main {
 			
 				case 1:
 					System.out.println("ID를 입력하세요 <뒤로가기입력시 초기화면으로 돌아갑니다>");
-					String user_id = sc.next();
+					user_id = sc.next();
 					if(user_id.equals("뒤로가기")) {
 						break;
 					}
@@ -107,22 +111,39 @@ public class Main {
 			}
 		}
 		
+		DAO dao= new DAO();
+		DTO user_inf= new DTO(user_id,user_pw);
+		dao.login(user_inf);
+		int coin = user_inf.getCoin();
+		int score = user_inf.getScore();
+		
+		System.out.println(coin);
+		System.out.println(score);
+		
+		
 		boolean isRun_main=true;
 		while(isRun_main) {
-			System.out.println("메인이당");
-			int sel=0;
+			System.out.println("[1]게임선택 [2]내정보 [3]랭킹 [4]상점 [5]종료");
+			int sel=sc.nextInt();
+			
 			switch (sel) {
 			case 1 ://게임선택
 				System.out.println("[1]슬롯머신 [2]야바위_최종 [3]경마");
 				int sel_game = sc.nextInt();
+				
+
 				if(sel_game ==1) {
-					
-					
+					slotmachine game = new slotmachine(coin, score);
+					game.play();
+					System.out.println(game.getcoin()); 
+					System.out.println(game.getScore()); 
 				}else if(sel_game ==2) {
 					
 					
 				}else if(sel_game ==3) {
 					
+					
+				}else {
 					
 				}
 				
@@ -138,12 +159,11 @@ public class Main {
 				
 				break;
 			case 5 : //종료
-				
+				isRun_main =false;
 				break;
-			default:
-				break;
+
 			}
-			break;
+
 		}
 	}
 

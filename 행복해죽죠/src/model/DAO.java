@@ -124,7 +124,7 @@ public class DAO {
 	public String login(DTO dto) {
 		connect();
 		String ment ="";
-		String sql ="select user_id,pw from users";
+		String sql ="select * from users";
 		
 		
 		try {
@@ -133,15 +133,25 @@ public class DAO {
 			while(rs.next()) {
 				if((dto.getUser_id()).equals(rs.getString(1)) && (dto.getUser_pw()).equals(rs.getString(2))) {
 					ment = "로그인 성공!";//+ rs.getString(1)+"님 환영합니다";
+					
+					dto.setUser_name(rs.getString(3));
+					dto.setAge(rs.getInt(4));
+					dto.setLevel(rs.getInt(5));
+					dto.setCoin(rs.getInt(6));
+					dto.setEx(rs.getInt(7));
+					dto.setScore(rs.getInt(8));
+		
 					break;
 				}else {
 					ment = "로그인 실패! ID와 PW를 확인해 주세요.";
 				}	
 			}
+	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
 		try {
 			if(conn!=null) {
 				conn.close();
@@ -159,7 +169,10 @@ public class DAO {
 		
 		return ment;
 	}
-	
+	//game종료후 update
+//	public update(DTO dto) {
+		
+//	}
 	
 	
 	

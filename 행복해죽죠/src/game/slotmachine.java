@@ -3,21 +3,31 @@ package game;
 import java.util.Random;
 import java.util.Scanner;
 
+import model.DTO;
+
 public class slotmachine {
-
-	public static void main(String[] args) {
-
 		Scanner sc = new Scanner(System.in);
 		Random rd = new Random();
-
-		// 변수 선언!
-		int coin = 10; // 코인 
-		int score = 0; // 총 스코어  
-		int bonus = 20; // easy 보너스 점수
-		int bonus1 = 30; // normal 보너스 점수 
-		int bonus2 = 50; // hard 보너스 점수 
 		
+		// 변수 선언!
+		private int coin; // 코인 
+		private int score; // 총 스코어  
+		private int bonus = 20; // easy 보너스 점수
+		private int bonus1 = 30; // normal 보너스 점수 
+		private int bonus2 = 50; // hard 보너스 점수 
+		
+		public slotmachine(int coin, int score) {
+			this.coin = coin;
+			this.score = score;
+		}
+		public int getScore() {
+			return score;
+		}
+		public int getcoin() {
+			return coin;
+		}
 
+		public void play() {
 		while (coin != 0) {
 
 			int[] slotmc = new int[5];
@@ -198,10 +208,14 @@ public class slotmachine {
 					}
 				}if(select == 4) {
 					System.out.println("종료");
+					
 					break;
-
+					
 			}
 
 		}
 	}
+		
+		
+		
 }
