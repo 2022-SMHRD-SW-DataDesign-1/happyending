@@ -144,10 +144,10 @@ public class Main {
 					user_inf.setScore(game.getScore());
 					dao.update(user_inf);
 				}else if(sel_game ==2) {
-
+                   game.trickery.trickery_game();
 
 				}else if(sel_game ==3) {
-					
+					game.RaceHorse.Horse();
 					
 				}else {
 					
