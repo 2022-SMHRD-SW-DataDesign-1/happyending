@@ -32,9 +32,9 @@ public class DAO {
 			 psmt.setString(3, or_name);
 			 psmt.setInt(4, or_age);
 			 psmt.setInt(5, 1);
-			 psmt.setInt(6,0);
+			 psmt.setInt(6,30);
 			 psmt.setInt(7, 0);
-			 psmt.setInt(8, 30);
+			 psmt.setInt(8, 0);
 			 
 			 
 			 cnt = psmt.executeUpdate();
