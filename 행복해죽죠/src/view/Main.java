@@ -148,16 +148,13 @@ public class Main {
 					user_inf.setScore(game.getScore());
 					dao.update(user_inf);
 				}else if(sel_game ==2) {
-
 					trickery tr_game= new trickery(coin, score);
 					tr_game.trickery_game();
 					user_inf.setCoin(tr_game.getcoin());
 					user_inf.setScore(tr_game.getScore());
 					dao.update(user_inf);
 
-
 				}else if(sel_game ==3) {
-
 					RaceHorse horse_game =new RaceHorse(coin,score);
 					horse_game.Horse();
 					user_inf.setCoin(horse_game.getcoin());
