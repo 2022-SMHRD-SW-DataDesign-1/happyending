@@ -32,6 +32,7 @@ public class RaceHorse {
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("1등말을 맞추면 score가 + 10,000점");
+		System.out.println("1~5번 말중 골라서 숫자를 입력하세요!");
 		System.out.println("말을 선택하세요 :) >>");
 		int num = sc.nextInt();
 		music.race();
@@ -117,7 +118,7 @@ class Horse extends Thread implements Comparable<Horse>{
 			for (int j = 0; j < i; j++) {
 				System.out.print(" ");
 			}
-			System.out.print("\"🐌\"");
+			System.out.print("@");
 
 			for (int j = 49; j > i; j--) {
 				System.out.print(" ");

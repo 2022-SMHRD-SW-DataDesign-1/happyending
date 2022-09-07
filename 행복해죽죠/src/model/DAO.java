@@ -228,7 +228,7 @@ public class DAO {
 		int user_ex = 0;
 		
 		try {
-			String sql ="select * from(select u.user_id,u.lv,g.grade_g,u.ex from users u,grade g where g.gd_lv = u.lv order by u.lv desc) where rownum<10";
+			String sql ="select * from(select u.user_id,u.lv,g.grade_g,u.ex from users u,grade g where g.gd_lv = u.lv order by u.lv desc,u.ex desc) where rownum<10";
 			psmt = conn.prepareStatement(sql);
 			rs=psmt.executeQuery();
 			System.out.println("ID"+"\t\t"+"LV"+"\t"+"등급"+"\t"+"경험치");
