@@ -19,6 +19,8 @@ public class RaceHorse {
 		list.add(new Horse("1번마"));
 		list.add(new Horse("2번마"));
 		list.add(new Horse("3번마"));
+		list.add(new Horse("4번마"));
+		list.add(new Horse("5번마"));
 
 
 		for (Horse horse : list) {
