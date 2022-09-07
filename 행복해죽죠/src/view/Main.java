@@ -2,6 +2,8 @@ package view;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import java.lang.reflect.Field;
+import java.nio.charset.Charset;
 
 import game.RaceHorse;
 import game.slotmachine;
@@ -11,6 +13,20 @@ import model.DAO;
 import model.DTO;
 public class Main {
 	public static void main(String[] args) {
+		System.setProperty("file.encoding","UTF-8");
+		  try{
+		  Field charset = Charset.class.getDeclaredField("defaultCharset");
+		  charset.setAccessible(true);
+		  charset.set(null,null);
+		  }
+		  catch(Exception e){
+		   
+		  }
+		
+		
+		
+		
+		
 		Scanner sc = new Scanner(System.in);
 		
 		String user_pw =null;
