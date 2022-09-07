@@ -6,8 +6,7 @@ import java.util.Scanner;
 import game.RaceHorse;
 import game.slotmachine;
 import game.trickery;
-
-import java.time.LocalDate;
+import game.Store;
 import model.DAO;
 import model.DTO;
 public class Main {
@@ -133,6 +132,8 @@ public class Main {
 		while(isRun_main) {
 			int coin = user_inf.getCoin();
 			int score = user_inf.getScore();
+			int ex = user_inf.getEx();
+			int lv = user_inf.getLevel();
 			System.out.println("[1]게임선택 [2]내정보 [3]랭킹 [4]상점 [5]종료");
 			int sel=sc.nextInt();
 
@@ -185,9 +186,13 @@ public class Main {
 				//경험치가 10이되면 lv+1
 				//lv1은 score 100당 경험치1
 				//lv2는 score 200당 경험치1
-				
-				
-				
+				Store shop = new Store(score, coin, ex, lv);
+				shop.trade();
+				user_inf.setScore(shop.getScore());
+				user_inf.setCoin(shop.getCoin());
+				user_inf.setEx(shop.getEx());
+				user_inf.setLevel(shop.getLv());
+				dao.update(user_inf);
 				break;
 			case 5 : //종료
 				isRun_main =false;

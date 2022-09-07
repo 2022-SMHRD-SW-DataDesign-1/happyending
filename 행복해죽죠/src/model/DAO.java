@@ -172,11 +172,13 @@ public class DAO {
 		connect();
 		int cnt =0;
 		try {
-			String sql = "update users set coin=?,score=? where user_id=? ";
+			String sql = "update users set coin=?,score=?,ex=?,lv=? where user_id=? ";
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, dto.getCoin());
 			psmt.setInt(2, dto.getScore());
-			psmt.setString(3, dto.getUser_id());
+			psmt.setInt(3, dto.getEx());
+			psmt.setInt(4, dto.getLevel());
+			psmt.setString(5, dto.getUser_id());
 			
 			cnt = psmt.executeUpdate();
 			
