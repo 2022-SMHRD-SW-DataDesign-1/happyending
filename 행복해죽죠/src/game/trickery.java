@@ -4,8 +4,21 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class trickery {
+	private int coin;
+	private int score;
+	public  trickery(int coin, int score) {
+		this.coin = coin;
+		this.score = score;
+	}
+	public int getScore() {
+		return score;
+	}
+	public int getcoin() {
+		return coin;
+	}
 
-	public static void main(String[] args) {
+
+	public static  void trickery_game() {
 		// 사용자는 코인 10개를 가지고 있다.
 		// 코인 10개를 가지고 게임을 시작한다.
 		// 야바위 게임은 초급 중급 고급 순으로 전개된다.
@@ -449,24 +462,7 @@ public class trickery {
 	}
 	
 
-	// 종료 메소드
-//	public static String end() {
-//		Scanner sc = new Scanner(System.in);
-//		System.out.println("다시 하시겠습니까?");
-//		String answer = sc.next();
-//		String result = "";
-//		switch (answer) {
-//		case "n":
-//			System.out.println("종료");
-//			result = "종료";
-//			break;
-//		case "y":
-//			break;
-//		default :
-//			result = "잘못입력하셨습니다.";
-//			break;
-//		}
-//		return result;
+
 
 	}
 	
