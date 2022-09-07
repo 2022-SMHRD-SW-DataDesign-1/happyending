@@ -198,6 +198,7 @@ public class slotmachine {
 					}
 				}if(select == 4) {
 					System.out.println("Á¾·á");
+					
 					break;
 
 			}
