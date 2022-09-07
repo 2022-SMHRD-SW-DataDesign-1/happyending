@@ -6,6 +6,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+import view.music;
+import view.ui;
+
 public class RaceHorse {
 
 	private int coin;
@@ -31,6 +34,8 @@ public class RaceHorse {
 		System.out.println("1등말을 맞추면 score가 + 10,000점");
 		System.out.println("말을 선택하세요 :) >>");
 		int num = sc.nextInt();
+		music.race();
+		ui.racehorse();
 		List<Horse> list = new ArrayList<>();
 		list.add(new Horse("1번마"));
 		list.add(new Horse("2번마"));
@@ -107,7 +112,7 @@ class Horse extends Thread implements Comparable<Horse>{
 
 	@Override
 	public void run() {
-		for (int i = 0; i < 40; i++) {
+		for (int i = 0; i < 20; i++) {
 			System.out.println("\n" + name1 + " : ");
 			for (int j = 0; j < i; j++) {
 				System.out.print(" ");

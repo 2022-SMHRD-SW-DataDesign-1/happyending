@@ -4,6 +4,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 import model.DTO;
+import view.music;
+import view.ui;
 
 public class slotmachine {
 		Scanner sc = new Scanner(System.in);
@@ -48,6 +50,8 @@ public class slotmachine {
 			// 게임시작
 			if (select == 1) { //easy
 				System.out.println(slotmc[0] + " " + slotmc[1] + " " + slotmc[2]);
+				music.slotmc();
+				ui.slotmachine();
 				if (slotmc[0] == slotmc[1] && slotmc[0] == slotmc[2]) {
 					System.out.println("100 점 획득 / 코인2개 획득!! ");
 					coin = coin + 2;
@@ -77,6 +81,8 @@ public class slotmachine {
 			}
 			if (select == 2) { //normal
 				System.out.println(slotmc[0] + " " + slotmc[1] + " " + slotmc[2] + " " + slotmc[3]);
+				music.slotmc();
+				ui.slotmachine();
 				if (slotmc[0] == slotmc[1] && slotmc[0] == slotmc[2] && slotmc[0] == slotmc[3]) {
 					System.out.println("200 점 획득 / 코인3개 획득 !! ");
 					coin = coin + 3;
@@ -140,6 +146,8 @@ public class slotmachine {
 			}
 				if (select == 3) { //hard 
 					System.out.println(slotmc[0] + " " + slotmc[1] + " " + slotmc[2] + " " + slotmc[3] + " " + slotmc[4]);
+					music.slotmc();
+					ui.slotmachine();
 					if (slotmc[0] == slotmc[1] && slotmc[0] == slotmc[2] && slotmc[0] == slotmc[3]&& slotmc[0] == slotmc[4]) {
 						System.out.println("300 점 획득 / 코인5개 획득!! ");
 						coin = coin + 5;

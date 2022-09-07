@@ -3,6 +3,9 @@ package game;
 import java.util.Random;
 import java.util.Scanner;
 
+import view.music;
+import view.ui;
+
 public class trickery {
 	private int coin;
 	private int score;
@@ -48,7 +51,8 @@ public class trickery {
 
 			if (lv_select == 1) {
 				// 초급버전
-
+music.tri();
+ui.trickery3();
 				// 다시 시작하기
 				// 야바위 배열
 				int[] ybw = new int[3];
@@ -153,7 +157,8 @@ public class trickery {
 // 중급버전
 
 			else if (lv_select == 2) {
-
+				music.tri();
+				ui.trickery2();
 				// 야바위 배열
 				int[] ybw = new int[4];
 
@@ -277,7 +282,8 @@ public class trickery {
 			}
 
 			else if (lv_select == 3) {
-
+				music.tri();
+				ui.trickery1();
 				// 야바위 배열
 				int[] ybw = new int[5];
 

@@ -18,13 +18,13 @@ public class Main {
 		String start_day =null;
 		String last_day=null;
 		String user_id =null;
-		
+		ui.main();
 		LocalDate now = LocalDate.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 		String formatedNow = now.format(formatter);
 		boolean isRun =true;
 		while(isRun) {
-			
+			ui.main2();
 			System.out.println("[1]회원가입 [2]로그인");
 			int sel = sc.nextInt();
 			switch (sel) {
@@ -156,6 +156,7 @@ public class Main {
 					dao.update(user_inf);
 
 				}else if(sel_game ==3) {
+					ui.racehorse();
 					RaceHorse horse_game =new RaceHorse(coin,score);
 					horse_game.Horse();
 					user_inf.setCoin(horse_game.getcoin());
