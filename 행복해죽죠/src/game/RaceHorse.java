@@ -8,9 +8,30 @@ import java.util.Scanner;
 
 public class RaceHorse {
 
+	private int coin;
+	private int score;
+	public  RaceHorse(int coin, int score) {
+		this.coin = coin;
+		this.score = score;
+	}
+	public int getScore() {
+		return score;
+	}
+	public int getcoin() {
+		return coin;
+	}
+	public void setScore(int score) {
+		this.score=score;
+	}
+	public void setcoin(int coin) {
+		this.coin=coin;
+	}
 	static int strRank = 1;
 
-	public static void main(String[] args) {
+	public static void Horse() {
+		
+		
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("말을 선택하세요 :) >>");
 		int num = sc.nextInt();
@@ -19,6 +40,8 @@ public class RaceHorse {
 		list.add(new Horse("1번마"));
 		list.add(new Horse("2번마"));
 		list.add(new Horse("3번마"));
+		list.add(new Horse("4번마"));
+		list.add(new Horse("5번마"));
 
 
 		for (Horse horse : list) {
