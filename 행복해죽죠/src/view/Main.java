@@ -2,7 +2,11 @@ package view;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+
+import game.RaceHorse;
 import game.slotmachine;
+import game.trickery;
+
 import java.time.LocalDate;
 import model.DAO;
 import model.DTO;
@@ -144,11 +148,18 @@ public class Main {
 					user_inf.setScore(game.getScore());
 					dao.update(user_inf);
 				}else if(sel_game ==2) {
-
+					trickery tr_game= new trickery(coin, score);
+					tr_game.trickery_game();
+					user_inf.setCoin(tr_game.getcoin());
+					user_inf.setScore(tr_game.getScore());
+					dao.update(user_inf);
 
 				}else if(sel_game ==3) {
-					
-					
+					RaceHorse horse_game =new RaceHorse(coin,score);
+					horse_game.Horse();
+					user_inf.setCoin(horse_game.getcoin());
+					user_inf.setScore(horse_game.getScore());
+					dao.update(user_inf);
 				}else {
 					
 				}
@@ -156,12 +167,26 @@ public class Main {
 				
 				break;
 			case 2 : //내정보조회
+				System.out.println("ID"+"\t"+"이름"+"\t"+"나이"+"\t"+"score"+"\t"+"레벨"+"\t"+"경험치"+"\t"+"코인수"+"\t"+"내등급");
+				System.out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n",user_inf.getUser_id(),user_inf.getUser_name(),+user_inf.getAge(),+user_inf.getScore(),user_inf.getLevel(),user_inf.getEx(),user_inf.getCoin(),user_inf.getGrade());
+				System.out.println("=========================================================");
+//				System.out.println("[0]뒤로가기"+"\t"+"[1]회원탈퇴");
+//				int infsel = sc.nextInt();
+				
 				
 				break;
 			case 3 ://랭킹조회
-				
+				dao.ranksel();
+
 				break;
 			case 4 ://상점
+				//score를 경험치로 교환.
+				//경험치는 최대 10
+				//경험치가 10이되면 lv+1
+				//lv1은 score 100당 경험치1
+				//lv2는 score 200당 경험치1
+				
+				
 				
 				break;
 			case 5 : //종료

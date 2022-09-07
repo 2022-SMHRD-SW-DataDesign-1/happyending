@@ -33,8 +33,8 @@ public class DAO {
 			 psmt.setInt(4, or_age);
 			 psmt.setInt(5, 1);
 			 psmt.setInt(6,0);
-			 psmt.setInt(7, 30);
-			 psmt.setInt(8, 0);
+			 psmt.setInt(7, 0);
+			 psmt.setInt(8, 30);
 			 
 			 
 			 cnt = psmt.executeUpdate();
@@ -120,7 +120,7 @@ public class DAO {
 	public String login(DTO dto) {
 		connect();
 		String ment ="";
-		String sql ="select * from users";
+		String sql ="select * from users u,grade g where g.gd_lv = u.lv";
 		
 		
 		try {
@@ -136,6 +136,7 @@ public class DAO {
 					dto.setCoin(rs.getInt(6));
 					dto.setEx(rs.getInt(7));
 					dto.setScore(rs.getInt(8));
+					dto.setGrade(rs.getString(10));
 		
 					break;
 				}else {
@@ -217,7 +218,35 @@ public class DAO {
 		return cnt;
 	}
 	
-	
+	public String ranksel() {
+		connect();
+		String user_id = null;
+		int user_lv = 0;				
+		String user_grade = null;
+		int user_ex = 0;
+		
+		try {
+			String sql ="select * from(select u.user_id,u.lv,g.grade_g,u.ex from users u,grade g where g.gd_lv = u.lv order by u.lv desc) where rownum<10";
+			psmt = conn.prepareStatement(sql);
+			rs=psmt.executeQuery();
+			System.out.println("ID"+"\t\t"+"LV"+"\t"+"등급"+"\t"+"경험치");
+			int cnt =1;
+			while(rs.next()) {
+			user_id = rs.getString(1);
+			user_lv = rs.getInt(2);				
+			user_grade = rs.getString(3);
+			user_ex = rs.getInt(4);
+			System.out.printf(cnt++ + "위 "+"%s\n\t\t%s\t%s\t%s\n",user_id,user_lv,user_grade,user_ex);
+			
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
+	}
 	
 	
 	
