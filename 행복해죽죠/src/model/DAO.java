@@ -1,11 +1,9 @@
 package model;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 public class DAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
@@ -35,7 +33,7 @@ public class DAO {
 			 psmt.setInt(4, or_age);
 			 psmt.setInt(5, 1);
 			 psmt.setInt(6,0);
-			 psmt.setInt(7, 0);
+			 psmt.setInt(7, 30);
 			 psmt.setInt(8, 0);
 			 
 			 
@@ -60,7 +58,6 @@ public class DAO {
 			System.out.println("쿼리전송 실패.");
 		}
 		
-
 		
 			try {
 				if(conn!=null) {
@@ -119,12 +116,11 @@ public class DAO {
 		}
 		return overlap;
 	}
-
 	//로그인
 	public String login(DTO dto) {
 		connect();
 		String ment ="";
-		String sql ="select user_id,pw from users";
+		String sql ="select * from users";
 		
 		
 		try {
@@ -133,15 +129,25 @@ public class DAO {
 			while(rs.next()) {
 				if((dto.getUser_id()).equals(rs.getString(1)) && (dto.getUser_pw()).equals(rs.getString(2))) {
 					ment = "로그인 성공!";//+ rs.getString(1)+"님 환영합니다";
+					
+					dto.setUser_name(rs.getString(3));
+					dto.setAge(rs.getInt(4));
+					dto.setLevel(rs.getInt(5));
+					dto.setCoin(rs.getInt(6));
+					dto.setEx(rs.getInt(7));
+					dto.setScore(rs.getInt(8));
+		
 					break;
 				}else {
 					ment = "로그인 실패! ID와 PW를 확인해 주세요.";
 				}	
 			}
+	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
 		try {
 			if(conn!=null) {
 				conn.close();
@@ -159,6 +165,57 @@ public class DAO {
 		
 		return ment;
 	}
+	//game종료후 update
+
+	public int update(DTO dto) {
+		connect();
+		int cnt =0;
+		try {
+			String sql = "update users set coin=?,score=? where user_id=? ";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, dto.getCoin());
+			psmt.setInt(2, dto.getScore());
+			psmt.setString(3, dto.getUser_id());
+			
+			cnt = psmt.executeUpdate();
+			
+//			sql = "commit";
+//			psmt = conn.prepareStatement(sql);
+//			cnt = psmt.executeUpdate();
+			
+			sql = "select coin,score from users where user_id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getUser_id());
+			rs = psmt.executeQuery();
+			rs.next();
+			dto.setCoin(rs.getInt(1)); 
+			dto.setScore(rs.getInt(2)); 
+			
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			if(conn!=null) {
+				conn.close();
+			}
+			if(psmt!=null) {
+				psmt.close();
+			}
+			if(rs!=null) {
+				rs.close();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return cnt;
+	}
 	
 	
 	
@@ -168,7 +225,7 @@ public class DAO {
 	
 	
 	
-	
+
 	
 	private void connect() {
 		//동적로딩
@@ -187,5 +244,5 @@ public class DAO {
 			System.out.println("db연결 실패.");
 		}
 	}
-
 }
+	
