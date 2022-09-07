@@ -10,6 +10,7 @@ public class RaceHorse {
 
 	private int coin;
 	private int score;
+	
 	public  RaceHorse(int coin, int score) {
 		this.coin = coin;
 		this.score = score;
@@ -20,23 +21,17 @@ public class RaceHorse {
 	public int getcoin() {
 		return coin;
 	}
-	public void setScore(int score) {
-		this.score=score;
-	}
-	public void setcoin(int coin) {
-		this.coin=coin;
-	}
-	static int strRank = 1;
 
-	public static void Horse() {
+	static int strRank = 1;
+	public void Horse() {
 		
 		
 		
 		Scanner sc = new Scanner(System.in);
+		System.out.println("1등말을 맞추면 score가 + 10,000점");
 		System.out.println("말을 선택하세요 :) >>");
 		int num = sc.nextInt();
 		List<Horse> list = new ArrayList<>();
-		int score = 1000;
 		list.add(new Horse("1번마"));
 		list.add(new Horse("2번마"));
 		list.add(new Horse("3번마"));
@@ -62,7 +57,7 @@ public class RaceHorse {
 		System.out.println();
 		System.out.println(" 경기 결과 ");
 		
-
+		strRank =1;
 		for (Horse horse : list) {
 			System.out.println(horse.getName1() + " " + horse.getRank() + "등");
 		
@@ -71,15 +66,18 @@ public class RaceHorse {
 
 		
 		if(list.get(0).getName1().equals(num+"번마")) {
-			score=score*2;
+			score=score+10000;
 			System.out.println("1등 축하합니다!!@!~!~!");
 			System.out.println(score);
 		}
+		coin-=1;
+		System.out.println("현재스코어"+score);
+		System.out.println("남은코인"+coin);
 
 		
 
 		}
-	}
+
 
 
 class Horse extends Thread implements Comparable<Horse>{
@@ -145,4 +143,5 @@ class Horse extends Thread implements Comparable<Horse>{
 			return -1;
 		}
 	}
+}
 }

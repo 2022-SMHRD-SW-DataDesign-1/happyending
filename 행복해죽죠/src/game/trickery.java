@@ -18,7 +18,7 @@ public class trickery {
 	}
 
 
-	public static  void trickery_game() {
+	public void trickery_game() {
 		// 사용자는 코인 10개를 가지고 있다.
 		// 코인 10개를 가지고 게임을 시작한다.
 		// 야바위 게임은 초급 중급 고급 순으로 전개된다.
@@ -29,8 +29,6 @@ public class trickery {
 
 		Scanner sc = new Scanner(System.in);
 		// 코인 설정
-		int coin = 10;
-		int score = 0;
 
 		int mbonus = 200;
 		int hbonus = 300;
@@ -443,7 +441,7 @@ public class trickery {
 			run=true;
 			while(run) {
 				
-				System.out.println("다시 하시겠습니까? ");
+				System.out.println("다시 하시겠습니까?(y/n) ");
 				String answer = sc.next();
 				if(answer.equals("n")) {
 					System.out.println("종료되었습니다.");
