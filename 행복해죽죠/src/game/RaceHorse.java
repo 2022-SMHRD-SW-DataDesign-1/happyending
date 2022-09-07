@@ -10,7 +10,8 @@ public class RaceHorse {
 
 	static int strRank = 1;
 
-	public static void main(String[] args) {
+	public static void Horse() {
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("말을 선택하세요 :) >>");
 		int num = sc.nextInt();
