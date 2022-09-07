@@ -16,7 +16,9 @@ public class music {
 		MP3Player mp3 = new MP3Player();
 		mp3.play(".\\music\\경마.mp3");
 	}
-	
+	public static void mainms() {
+		MP3Player mp3 = new MP3Player();
+		mp3.play(".\\music\\메인.mp3");
 }
-
+}
 

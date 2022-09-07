@@ -41,6 +41,7 @@ public class Main {
 		boolean isRun =true;
 		while(isRun) {
 			ui.main2();
+			music.mainms();
 			System.out.println("[1]회원가입 [2]로그인");
 			int sel = sc.nextInt();
 			switch (sel) {
