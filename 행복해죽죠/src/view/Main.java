@@ -156,7 +156,7 @@ public class Main {
 
 			switch (sel) {
 			case 1 ://게임선택
-				System.out.println("[1]슬롯머신 [2]야바위_최종 [3]경마");
+				System.out.println("[1]슬롯머신 [2]야바위 [3]경마");
 				int sel_game = sc.nextInt();
 				
 				if(sel_game ==1) {
@@ -191,7 +191,14 @@ public class Main {
 				System.out.println("=========================================================");
 //				System.out.println("[0]뒤로가기"+"\t"+"[1]회원탈퇴");
 //				int infsel = sc.nextInt();
-				
+//				if(infsel==1) {
+//					System.out.println("탈퇴하시겠습니까?(y/n)");
+//					if(sc.next().equals("y")) {
+//						
+//					}else {
+//						
+//					}.
+//				}
 				
 				break;
 			case 3 ://랭킹조회

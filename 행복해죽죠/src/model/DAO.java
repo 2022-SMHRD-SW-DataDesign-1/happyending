@@ -87,8 +87,10 @@ public class DAO {
 			psmt =conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
+
 				if((dto.getUser_id()).equals(rs.getString(1))) {
 					overlap = "이미 존재하는 ID 입니다.";
+					break;
 				}
 				else {
 					overlap = "사용가능한 ID입니다.";
